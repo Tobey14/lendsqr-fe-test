@@ -7,6 +7,7 @@ This project was developed completely by Tobechukwu Collins Onuigbo and is live 
 2. Typesript
 3. SCSS
 4. HTML
+5. CSS
 
 ## Other libraries used includes
 1. React Paginator
