@@ -1,6 +1,6 @@
 # My Frontend Developer Test Repository For LendSqr
 
-This project was developed completely by Tobechukwu Collins Onuigbo.
+This project was developed completely by Tobechukwu Collins Onuigbo and is live at https://onuigbo-tobechukwu-collins-lendsqr-fe-test.netlify.app 
 
 ## Tech stack used includes
 1. Reactjs
