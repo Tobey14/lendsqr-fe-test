@@ -22,10 +22,6 @@ import { useLocalStorage } from 'usehooks-ts';
 
 function Dashboard() {
 
-  interface pagSelect {
-    value: string;
-  }
-
   interface Item {
     id: string,
     orgName:string,
@@ -49,10 +45,12 @@ function Dashboard() {
   );
   const pagesVisited = pageNumber * itemsPerPage;
 
+  //paginator function that selects page to view
   const changePage = ({selected}:any) => {
       setPageNumber(selected);
   };
 
+  //paginator function that changes size of page
   const changePagSize = (event:any) => {
 
     setItemsPerPage(parseInt(event.target.value));
@@ -60,7 +58,10 @@ function Dashboard() {
 
   }
 
+  //react use effect hook called when component mounts
   useEffect(() => {
+
+    //jquery section
     $('.bi-filter').on('click', function(){
       $('.filter-modal').toggleClass('hide');
     })
@@ -76,9 +77,12 @@ function Dashboard() {
     $('thead').on('click', function(){
       $('.action-modal').addClass('hide');
     });
+    //jquery section ends
 
+    //api fetch call starts to get items and update state value of allUsers
     const userUrl = 'https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users';
 
+    //checks if allUsers is stored in localstorage to avoid running the fetch call again
     if(localStorage.getItem('allUsers')){
 
     }else{
@@ -89,11 +93,9 @@ function Dashboard() {
       },2000);
     }
 
+    //api fetch call section ends
   });
 
-
-  
-  
 
   return (
       <div className="dashboard">
