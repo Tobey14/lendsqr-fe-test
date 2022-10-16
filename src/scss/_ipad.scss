@@ -159,7 +159,7 @@
                     font-family: $sidebar-font;
                     font-style: normal;
                     font-weight: 500;
-                    font-size: 24px;
+                    font-size: 18px;
                     line-height: 28px;
                     color: $primary-color;
                 }
@@ -206,6 +206,7 @@
                     border-radius: 4px;
                     background: $light-color;
                     padding:1%;
+                    overflow-x: scroll;
 
                     .table{
                     width:100%;

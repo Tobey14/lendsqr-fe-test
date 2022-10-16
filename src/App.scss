@@ -281,8 +281,7 @@ body {
         font-family: $sidebar-font;
         font-style: normal;
         font-weight: 500;
-        font-size: 24px;
-        line-height: 28px;
+        font-size: 13px;
         color: $primary-color;
       }
 
@@ -354,7 +353,7 @@ body {
           font-family: $sidebar-font;
           font-style: normal;
           font-weight: 400;
-          font-size: 14px;
+          font-size: 14px !important;
           line-height: 16px;
           color: $third-color;
 
@@ -365,7 +364,7 @@ body {
               position: absolute;
               width: 160px;
               height: 130px;
-              right: -30px;
+              left: -42px !important;
               top: 30px;
               z-index: 2;
     
@@ -378,6 +377,7 @@ body {
               a{
                 text-decoration: none;
                 color: $third-color;
+                font-size: 12px !important;
               }
 
               &-flex{
@@ -578,6 +578,7 @@ body {
 
           p{
             margin-bottom: 0 !important;
+            font-size: 24px !important;
           }
 
           .vl {
@@ -586,17 +587,12 @@ body {
             opacity: 0.4;
           }
 
-          .fa-star{
-            background-color: transparent;
-            color:#E9B200;
-          }
-
           .code{
             margin-bottom: 0 !important;
             font-family: $sidebar-font;
             font-style: normal;
             font-weight: 400;
-            font-size: 16px;
+            font-size: 16px !important;
             line-height: 19px;
             color: $third-color;
           }
@@ -711,10 +707,21 @@ ul{
   padding-left: 0px !important;
 }
 
-.activepgn{
+.activepgn, .fa{
   color:$primary-color !important;
   opacity: 1 !important;
 }
+
+.fa-star{
+  background-color: transparent;
+  color:#E9B200 !important;
+}
+
+.dropdown-menu{
+  left:-42px !important;
+  align-items: center;
+}
+
 
 
 

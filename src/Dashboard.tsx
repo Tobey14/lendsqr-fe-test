@@ -209,24 +209,30 @@ function Dashboard() {
                               </td>
 
                               <td>
-                                <div className="table-dots">
-                                  <i className='bi bi-three-dots-vertical'></i>
-                                  <div className="action-modal hide">
+                                <div className="dropdown">
+                                  <a className="" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i className='bi bi-three-dots-vertical'></i></a>
+                                  {/* <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a className="dropdown-item" href="#">Action</a>
+                                    <a className="dropdown-item" href="#">Another action</a>
+                                    <a className="dropdown-item" href="#">Something else here</a>
+                                  </div> */}
+                                  
+                                  <div className="action-modal dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <Link to={`/user/${user.id}`}>
-                                      <div className="action-modal-flex">
-                                        <i className="fa fa-eye"></i>
+                                      <div className="action-modal-flex justify-content-evenly px-3 d-flex dropdown-item">
+                                        <i className="fa fa-eye mx-2 mt-2"></i>
                                         <p>View Details</p>
                                       </div>
                                     </Link>
                                     
 
-                                    <div className="action-modal-flex mt-3">
-                                      <i className="fa fa-user-times"></i>
+                                    <div className="action-modal-flex justify-content-evenly px-3 d-flex dropdown-item">
+                                      <i className="fa fa-user-times mx-2 mt-1"></i>
                                       <p>Blacklist User</p>
                                     </div>
 
-                                    <div className="action-modal-flex mt-3">
-                                      <i className="fa fa-user-plus"></i>
+                                    <div className="action-modal-flex justify-content-evenly px-3 d-flex  dropdown-item">
+                                      <i className="fa fa-user-plus mx-2 mt-2"></i>
                                       <p>Activate User</p>
                                     </div>
 
@@ -317,6 +323,14 @@ function Dashboard() {
 
                     
 
+                  </div>
+
+                  <div className="dropdown">
+                    <a className="dropdown-toggle" data-toggle="dropdown" href="#">Personal asset loans</a>
+                    <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">            
+                      <li><a href="#">asds</a></li>
+                      <li className="divider"></li>
+                    </ul>
                   </div>
 
                   
