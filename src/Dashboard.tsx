@@ -1,0 +1,333 @@
+import React from 'react';
+import './App.scss';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useHistory
+} from "react-router-dom";
+import Sidebar from './sidebar';
+import Header from './Header';
+import cardIcon from './img/cardIcon.png';
+import cardIcon4 from './img/cardIcon4.png';
+import cardIcon2 from './img/cardIcon2.png';
+import cardIcon3 from './img/cardIcon3.png';
+import $ from 'jquery';
+import {useState, useEffect} from 'react';
+import moment from 'moment';
+import ReactPaginate from 'react-paginate';
+import { useLocalStorage } from 'usehooks-ts';
+
+
+function Dashboard() {
+
+  interface pagSelect {
+    value: string;
+  }
+
+  interface Item {
+    id: string,
+    orgName:string,
+    userName: string,
+    email:string;
+    profile:{
+      firstName:string,
+      lastName:string,
+      phoneNumber: string
+    }
+    createdAt: Date;
+  }
+
+  const [allUsers, setAllUsers] = useLocalStorage<Array<Item>>('allUsers', []) || useState<Array<Item>>([]);
+  
+  //pagination setup
+  const [pageNumber, setPageNumber] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [pageCount, setPageCount] = React.useState(
+    Math.ceil(allUsers.length / itemsPerPage)
+  );
+  const pagesVisited = pageNumber * itemsPerPage;
+
+  const changePage = ({selected}:any) => {
+      setPageNumber(selected);
+  };
+
+  const changePagSize = (event:any) => {
+
+    setItemsPerPage(parseInt(event.target.value));
+    setPageCount(Math.ceil(allUsers.length / parseInt(event.target.value)));
+
+  }
+
+  useEffect(() => {
+    $('.bi-filter').on('click', function(){
+      $('.filter-modal').toggleClass('hide');
+    })
+
+    $('.bi-three-dots-vertical').on('click', function(this: HTMLButtonElement){
+      $(this).next().toggleClass('hide');
+    })
+
+    $('.table-body').on('click', function(){
+      $('.filter-modal').addClass('hide');
+    })
+
+    $('thead').on('click', function(){
+      $('.action-modal').addClass('hide');
+    });
+
+    const userUrl = 'https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users';
+
+    if(localStorage.getItem('allUsers')){
+
+    }else{
+      setTimeout(()=>{
+        fetch(userUrl).then((response)=> response.json()).then((users)=>{
+            setAllUsers(users);
+        });
+      },2000);
+    }
+
+  });
+
+
+  
+  
+
+  return (
+      <div className="dashboard">
+        <Header />
+
+        <div className="main">
+          <div className="">
+            <Sidebar/>
+
+          </div>
+          <div className="main-content">
+              <p>Users</p>
+
+              <div className="cards-div">
+                <div className="cards">
+
+                  <img src={cardIcon} alt="" />
+                  <p className='pt-2'>Users</p>
+                  <h3>{allUsers.length}</h3>
+                  
+                </div>
+
+                <div className="cards">
+                  <img src={cardIcon2} alt="" />
+                  <p className='pt-2'>Active Users</p>
+                  <h3>{allUsers.length}</h3>
+                </div>
+
+                <div className="cards">
+                  <img src={cardIcon3} alt="" />
+                  <p className='pt-2'>Users with Loans</p>
+                  <h3>12,438</h3>
+                </div>
+
+                <div className="cards">
+                  <img src={cardIcon4} alt="" />
+                  <p className='pt-2'>Users with Savings</p>
+                  <h3>10,438</h3>
+                </div>
+              </div>
+
+              <div className="table-card">
+                  <table className='table table-responsive'>
+                    <thead>
+                      <tr>
+
+                        
+                        <th>
+                            <p>ORGANIZATION <i className='bi bi-filter mx-2'></i></p>
+                        </th>
+
+                        <th>
+                            <p>USERNAME <i className='bi bi-filter mx-2'></i></p>
+                        </th>
+
+                        <th>
+                            <p>EMAIL <i className='bi bi-filter mx-2'></i></p>
+                        </th>
+
+                        <th>
+                            <p>PHONE NUMBER <i className='bi bi-filter mx-2'></i></p>
+                        </th>
+
+                        <th>
+                            <p>DATE JOINED <i className='bi bi-filter mx-2'></i></p>
+                        </th>
+
+                        <th>
+                            <p>STATUS <i className='bi bi-filter mx-2'></i></p>
+                        </th>
+
+                        <th>
+                            
+                        </th>
+                      </tr>
+                    </thead>
+
+
+                    <tbody className='table-body'>
+
+                      {allUsers.slice(pagesVisited, pagesVisited + itemsPerPage).map((user, index) => {
+                          // * Pass in the necessary props to each <Book/> component.
+                          return (
+                            <tr key={index}>
+                              <td>
+                                {user.orgName}
+                              </td>
+
+                              <td>
+                                {user.profile.firstName + ' ' + user.profile.lastName}
+                              </td>
+
+                              <td>
+                                {user.email}
+                              </td>
+
+                              <td>
+                                {user.profile.phoneNumber}
+                              </td>
+
+                              <td>
+                                  {moment(user.createdAt).format('MMM Do YYYY, h:mm A')}
+                              </td>
+
+                              <td>
+                                <button className={`${index % 2 == 0 ? "user-active" : index % 3 == 0 ?  "user-blacklisted" :index % 5 == 0 ? "user-pending" : 'user-inactive'}`}>
+                                  {index % 2 == 0 ? "active" : index % 3 == 0 ? "blacklisted" : index % 5 == 0 ? "pending" : "inactive"}
+                                </button>
+                              
+                                
+                              </td>
+
+                              <td>
+                                <div className="table-dots">
+                                  <i className='bi bi-three-dots-vertical'></i>
+                                  <div className="action-modal hide">
+                                    <Link to={`/user/${user.id}`}>
+                                      <div className="action-modal-flex">
+                                        <i className="fa fa-eye"></i>
+                                        <p>View Details</p>
+                                      </div>
+                                    </Link>
+                                    
+
+                                    <div className="action-modal-flex mt-3">
+                                      <i className="fa fa-user-times"></i>
+                                      <p>Blacklist User</p>
+                                    </div>
+
+                                    <div className="action-modal-flex mt-3">
+                                      <i className="fa fa-user-plus"></i>
+                                      <p>Activate User</p>
+                                    </div>
+
+                                  </div>
+                                </div>
+                                
+                              </td>
+                            </tr>
+                          );
+                      })}                      
+                    </tbody>
+
+                  </table>
+
+                  <div className="d-flex justify-content-between">
+                      <div className="pagination">
+                        <p>Showing </p>
+                        <select value={itemsPerPage} onChange={changePagSize} name="" id="" className='px-2 mx-2'>
+                          <option value="10">
+                            10
+                          </option>
+
+                          <option value="20">
+                            20
+                          </option>
+
+                          <option value="50">
+                            50
+                          </option>
+
+
+                          <option value="100">
+                            100
+                          </option>
+                        </select>
+                        <p>out of 100</p>
+
+                      </div>
+
+                      <div className="d-flex">
+                          <ReactPaginate 
+                            className='d-flex list-none'
+                            previousLabel={<button className="pag-btn px-2"><i className="fa fa-angle-left"></i></button>}
+                            nextLabel={<button className="pag-btn px-2"><i className="fa fa-angle-right"></i></button>}
+                            pageCount={pageCount}
+                            onPageChange={changePage}
+                            pageLinkClassName={"pag-number px-2"}
+                            breakLabel="..."
+                            breakClassName="page-item"
+                            activeLinkClassName={"activepgn"}
+                          />
+                          
+                      </div>
+                  </div>
+
+                  <div className="filter-modal hide">
+                    <label>Organization</label>
+                    <select name="" id="" className='filter-modal-select'>
+                      <option value="">Select</option>
+                      <option value="Lendsqr">LendSqr</option>
+                    </select>
+
+
+                    <label className='mt-3'>Username</label>
+                    <input type="text" placeholder='user'/>
+
+                    <label className='mt-3'>Email</label>
+                    <input type="text" placeholder='Email'/>
+
+                    <label className='mt-3'>Date</label>
+                    <input type="date" placeholder='Date'/>
+
+                    <label className='mt-3'>Phone number</label>
+                    <input type="text" placeholder='Phone number'/>
+
+                    <label className='mt-3'>Status</label>
+                    <select name="" id="" className='filter-modal-select'>
+                      <option value="">Select</option>
+                      <option value="Lendsqr">LendSqr</option>
+                    </select>
+
+                    <div className="filter-modal-btns">
+
+                      <button>Reset</button>
+                      <button className='filter-btn'>Filter</button>
+
+                    </div>
+
+                    
+
+                  </div>
+
+                  
+              </div>
+              
+          </div>
+        </div>
+
+          
+          
+      </div>    
+  );
+}
+
+
+export default Dashboard;
