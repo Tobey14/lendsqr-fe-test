@@ -1,46 +1,43 @@
-# Getting Started with Create React App
+# My Frontend Developer Test Repository For LendSqr
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was developed completely by Tobechukwu Collins Onuigbo.
 
-## Available Scripts
+## Tech stack used includes
+1. Reactjs
+2. Typesript
+3. SCSS
+4. HTML
+
+## Other libraries used includes
+1. React Paginator
+2. React Router
+3. Usehooks-ts
+4. Momentjs
+5. Jquery
+6. Jest React-scripts Testing Tool
+
+## Main React Components includes
+1. Index.tsx that is the entry point to the entire project. This is where react dom is rendered to a div of id root found in public/index.html.
+2. App.tsx that is the entry point from the index.tsx. It contains the structure and route definitions
+3. Login.tsx is the login page.
+4. Dashboard.tsx is the dashboard where user records are displayed.
+5. Details.tsx is the user details page.
+6. Sidebar.tsx is the sidebar of the dashboard and details components.
+7. Header.tsx is the header of the dashboard and details components.
 
 In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
+This runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
 ### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in the interactive watch mode.
 
 ### `npm run build`
+Builds the app for production to the `build` folder.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
