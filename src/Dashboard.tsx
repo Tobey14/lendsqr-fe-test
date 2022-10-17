@@ -61,16 +61,6 @@ function Dashboard() {
   //react use effect hook called when component mounts
   useEffect(() => {
 
-    //vanilla js section
-    document.querySelector('.bi-filter')?.addEventListener('click', function(){
-      document.querySelector('.filter-modal')?.classList.toggle('hide');
-    })
-
-    document.querySelector('.table-body')?.addEventListener('click', function(){
-      document.querySelector('.filter-modal')?.classList.add('hide');
-    })
-    //vanilla js section ends
-
     //api fetch call starts to get items and update state value of allUsers
     const userUrl = 'https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users';
 
@@ -136,7 +126,50 @@ function Dashboard() {
 
                         
                         <th>
-                            <p>ORGANIZATION <i className='bi bi-filter mx-2'></i></p>
+                          <div className="dropdown">
+                            <a className="" href="#" role="button" id="dropdownMenuLinkFilter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <p>ORGANIZATION <i className='bi bi-filter mx-2'></i></p>
+
+                            </a>
+
+                            <div className="filter-modal dropdown-menu" aria-labelledby="dropdownMenuLinkFilter">
+                              <label>Organization</label>
+                              <select name="" id="" className='filter-modal-select'>
+                                <option value="">Select</option>
+                                <option value="Lendsqr">LendSqr</option>
+                              </select>
+
+
+                              <label className='mt-3'>Username</label>
+                              <input type="text" placeholder='user'/>
+
+                              <label className='mt-3'>Email</label>
+                              <input type="text" placeholder='Email'/>
+
+                              <label className='mt-3'>Date</label>
+                              <input type="date" placeholder='Date'/>
+
+                              <label className='mt-3'>Phone number</label>
+                              <input type="text" placeholder='Phone number'/>
+
+                              <label className='mt-3'>Status</label>
+                              <select name="" id="" className='filter-modal-select'>
+                                <option value="">Select</option>
+                                <option value="Lendsqr">LendSqr</option>
+                              </select>
+
+                              <div className="filter-modal-btns">
+
+                                <button>Reset</button>
+                                <button className='filter-btn'>Filter</button>
+
+                              </div>
+
+                              
+
+                            </div>
+                          </div>
+                             
                         </th>
 
                         <th>
@@ -280,42 +313,7 @@ function Dashboard() {
                       </div>
                   </div>
 
-                  <div className="filter-modal hide">
-                    <label>Organization</label>
-                    <select name="" id="" className='filter-modal-select'>
-                      <option value="">Select</option>
-                      <option value="Lendsqr">LendSqr</option>
-                    </select>
-
-
-                    <label className='mt-3'>Username</label>
-                    <input type="text" placeholder='user'/>
-
-                    <label className='mt-3'>Email</label>
-                    <input type="text" placeholder='Email'/>
-
-                    <label className='mt-3'>Date</label>
-                    <input type="date" placeholder='Date'/>
-
-                    <label className='mt-3'>Phone number</label>
-                    <input type="text" placeholder='Phone number'/>
-
-                    <label className='mt-3'>Status</label>
-                    <select name="" id="" className='filter-modal-select'>
-                      <option value="">Select</option>
-                      <option value="Lendsqr">LendSqr</option>
-                    </select>
-
-                    <div className="filter-modal-btns">
-
-                      <button>Reset</button>
-                      <button className='filter-btn'>Filter</button>
-
-                    </div>
-
-                    
-
-                  </div>                 
+                                  
               </div>
               
           </div>
