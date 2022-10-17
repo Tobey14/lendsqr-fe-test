@@ -51,7 +51,7 @@ function Dashboard() {
   };
 
   //paginator function that changes size of page
-  const changePagSize = (event:any) => {
+  const changePageSize = (event:any) => {
 
     setItemsPerPage(parseInt(event.target.value));
     setPageCount(Math.ceil(allUsers.length / parseInt(event.target.value)));
@@ -275,7 +275,7 @@ function Dashboard() {
                   <div className="d-flex justify-content-between">
                       <div className="pagination">
                         <p>Showing </p>
-                        <select value={itemsPerPage} onChange={changePagSize} name="" id="" className='px-2 mx-2'>
+                        <select value={itemsPerPage} onChange={changePageSize} name="" id="" className='px-2 mx-2'>
                           <option value="10">
                             10
                           </option>
