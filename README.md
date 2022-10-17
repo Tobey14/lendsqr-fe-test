@@ -28,6 +28,10 @@ This project was developed by Onuigbo Tobechukwu Collins and is live at https://
 
 In the project directory, you can run:
 
+## Mock Api Endpoints:
+1. Get all users https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users 
+2. Get user details by id https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/:id 
+
 ### `npm start`
 
 This runs the app in the development mode.
