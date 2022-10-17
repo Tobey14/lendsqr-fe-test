@@ -18,10 +18,12 @@ import { useLocalStorage } from 'usehooks-ts';
 
 
 
-function Dashboard() {
+function Details() {
 
+  //receive url query parameter
   let { id } = useParams();
 
+  //create user details object type interface named item
   interface Item {
     id: string,
     orgName:string,
@@ -69,6 +71,8 @@ function Dashboard() {
     accountNumber:string,
 
   }
+
+  //receive user data from localstorage or use initial state of an empty object of type item
 
   const [user, setUser] =useLocalStorage<Item>('individualUser', 
   {
@@ -170,8 +174,9 @@ function Dashboard() {
   }
   );
 
-
+  //called on component mount
   useEffect(() => {
+    //url to fetch user details
     const url = 'https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/'+id;
     
     fetch(url).then((response)=> response.json()).then((data)=>{
@@ -553,4 +558,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Details;
