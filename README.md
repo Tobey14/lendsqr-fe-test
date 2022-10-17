@@ -1,6 +1,6 @@
 # My Frontend Developer Test Repository For LendSqr
 
-This project was developed completely by Tobechukwu Collins Onuigbo and is live at https://onuigbo-tobechukwu-collins-lendsqr-fe-test.netlify.app 
+This project was developed by Onuigbo Tobechukwu Collins and is live at https://onuigbo-tobechukwu-lendsqr-fe-test.netlify.app
 
 ## Tech stack used includes
 1. Reactjs
@@ -9,7 +9,7 @@ This project was developed completely by Tobechukwu Collins Onuigbo and is live 
 4. HTML
 5. CSS
 
-## Other libraries used includes
+## Other javascript libraries used includes
 1. React Paginator
 2. React Router
 3. Usehooks-ts
