@@ -15,7 +15,10 @@ This project was developed by Onuigbo Tobechukwu Collins and is live at https://
 3. Usehooks-ts
 4. Momentjs
 5. Jquery
-6. Jest React-scripts Testing Tool
+
+## Testing tools used includes
+1. React DevTools
+2. Jest React-scripts Testing Tool
 
 ## Main React Components includes
 1. Index.tsx that is the entry point to the entire project. This is where react dom is rendered to a div of id root found in public/index.html.
