@@ -1,6 +1,6 @@
 # My Frontend Developer Test Repository For LendSqr
 
-This project was developed completely by Tobechukwu Collins Onuigbo and is live at https://onuigbo-tobechukwu-collins-lendsqr-fe-test.netlify.app 
+This project was developed by Onuigbo Tobechukwu Collins and is live at https://onuigbo-tobechukwu-lendsqr-fe-test.netlify.app
 
 ## Tech stack used includes
 1. Reactjs
@@ -9,13 +9,16 @@ This project was developed completely by Tobechukwu Collins Onuigbo and is live 
 4. HTML
 5. CSS
 
-## Other libraries used includes
+## Other javascript libraries used includes
 1. React Paginator
 2. React Router
 3. Usehooks-ts
 4. Momentjs
 5. Jquery
-6. Jest React-scripts Testing Tool
+
+## Testing tools used includes
+1. React DevTools
+2. Jest React-scripts Testing Tool
 
 ## Main React Components includes
 1. Index.tsx that is the entry point to the entire project. This is where react dom is rendered to a div of id root found in public/index.html.
@@ -27,6 +30,10 @@ This project was developed completely by Tobechukwu Collins Onuigbo and is live 
 7. Header.tsx is the header of the dashboard and details components.
 
 In the project directory, you can run:
+
+## Mock Api Endpoints:
+1. Get all users https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users 
+2. Get user details by id https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users/:id 
 
 ### `npm start`
 
