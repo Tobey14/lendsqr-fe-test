@@ -61,23 +61,15 @@ function Dashboard() {
   //react use effect hook called when component mounts
   useEffect(() => {
 
-    //jquery section
-    $('.bi-filter').on('click', function(){
-      $('.filter-modal').toggleClass('hide');
+    //vanilla js section
+    document.querySelector('.bi-filter')?.addEventListener('click', function(){
+      document.querySelector('.filter-modal')?.classList.toggle('hide');
     })
 
-    $('.bi-three-dots-vertical').on('click', function(this: HTMLButtonElement){
-      $(this).next().toggleClass('hide');
+    document.querySelector('.table-body')?.addEventListener('click', function(){
+      document.querySelector('.filter-modal')?.classList.add('hide');
     })
-
-    $('.table-body').on('click', function(){
-      $('.filter-modal').addClass('hide');
-    })
-
-    $('thead').on('click', function(){
-      $('.action-modal').addClass('hide');
-    });
-    //jquery section ends
+    //vanilla js section ends
 
     //api fetch call starts to get items and update state value of allUsers
     const userUrl = 'https://6270020422c706a0ae70b72c.mockapi.io/lendsqr/api/v1/users';
@@ -220,19 +212,19 @@ function Dashboard() {
                                   <div className="action-modal dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <Link to={`/user/${user.id}`}>
                                       <div className="action-modal-flex justify-content-evenly px-3 d-flex dropdown-item">
-                                        <i className="fa fa-eye mx-2 mt-2"></i>
+                                        <i className="fa fa-eye mx-2"></i>
                                         <p>View Details</p>
                                       </div>
                                     </Link>
                                     
 
                                     <div className="action-modal-flex justify-content-evenly px-3 d-flex dropdown-item">
-                                      <i className="fa fa-user-times mx-2 mt-1"></i>
+                                      <i className="fa fa-user-times mx-2"></i>
                                       <p>Blacklist User</p>
                                     </div>
 
                                     <div className="action-modal-flex justify-content-evenly px-3 d-flex  dropdown-item">
-                                      <i className="fa fa-user-plus mx-2 mt-2"></i>
+                                      <i className="fa fa-user-plus mx-2"></i>
                                       <p>Activate User</p>
                                     </div>
 
@@ -323,17 +315,7 @@ function Dashboard() {
 
                     
 
-                  </div>
-
-                  <div className="dropdown">
-                    <a className="dropdown-toggle" data-toggle="dropdown" href="#">Personal asset loans</a>
-                    <ul className="dropdown-menu" role="menu" aria-labelledby="dLabel">            
-                      <li><a href="#">asds</a></li>
-                      <li className="divider"></li>
-                    </ul>
-                  </div>
-
-                  
+                  </div>                 
               </div>
               
           </div>

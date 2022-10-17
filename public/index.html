@@ -20,7 +20,6 @@
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css'>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" ></script>
     <title>LendSqr Platform</title>
   </head>
   <body>
@@ -37,26 +36,5 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
 
-    <script>
-      $(document).on('ready', function(){
-        //jquery section
-        $('.bi-filter').on('click', function(){
-          $('.filter-modal').removeClass('hide');
-        })
-
-        $('.bi-three-dots-vertical').on('click', function(){
-          $(this).next().toggleClass('hide');
-        })
-
-        $('.table-body').on('click', function(){
-          $('.filter-modal').addClass('hide');
-        })
-
-        $('thead').on('click', function(){
-          $('.action-modal').addClass('hide');
-        });
-        //jquery section ends
-      })
-    </script>
   </body>
 </html>
