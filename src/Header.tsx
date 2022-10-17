@@ -1,16 +1,7 @@
 import React from 'react';
 import logo from './img/logo.png';
 import userImage from './img/userImage.png';
-
-
-
 import './App.scss';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
 import $ from 'jquery';
 
 function Header() {

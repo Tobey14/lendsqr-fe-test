@@ -2,10 +2,7 @@ import React from 'react';
 import './App.scss';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
   Link,
-  useHistory
 } from "react-router-dom";
 import Sidebar from './sidebar';
 import Header from './Header';
@@ -13,7 +10,6 @@ import cardIcon from './img/cardIcon.png';
 import cardIcon4 from './img/cardIcon4.png';
 import cardIcon2 from './img/cardIcon2.png';
 import cardIcon3 from './img/cardIcon3.png';
-import $ from 'jquery';
 import {useState, useEffect} from 'react';
 import moment from 'moment';
 import ReactPaginate from 'react-paginate';

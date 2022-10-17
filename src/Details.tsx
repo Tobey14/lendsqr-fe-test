@@ -1,19 +1,14 @@
 import React from 'react';
 import {useState, useEffect} from 'react';
-import loginImg from './img/login.png';
-import logo from './img/logo.png';
 import './App.scss';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
   Link,
   useParams
 } from "react-router-dom";
 import Sidebar from './sidebar';
 import Header from './Header';
 import avatar from './img/avatar.png';
-import $ from 'jquery';
 import { useLocalStorage } from 'usehooks-ts';
 
 

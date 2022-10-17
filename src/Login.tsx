@@ -4,10 +4,7 @@ import logo from './img/logo.png';
 import './App.scss';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
   Link,
-  useParams
 } from "react-router-dom";
 
 function Login() {
